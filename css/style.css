@@ -1,15 +1,40 @@
+body {
+  background-color: #4FFED8;
+  font-family: 'Oswald', sans-serif;
+}
+
 h1 {
+  color: #2B97CB;
+  font-family: 'Bangers', cursive;
+  font-size: 5em;
+  text-align: center;
   margin: 0 auto;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+form {
   text-align: center;
 }
 
-.searchField {
-  overflow: hidden;
-  padding-right: 0.5em;
-  width: 75%;
-  display: inline-block;
+input {
+
 }
 
-.button-primary {
-  float: right;
+.searchField {
+  width: 250px;
+  font-size: 1em;
+}
+
+#btn {
+  background-color: #CB2B3E;
+  color: #FFF;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+p {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: -25px;
 }

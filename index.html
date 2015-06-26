@@ -15,7 +15,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Bangers|Oswald:400,700' rel='stylesheet' type='text/css'>
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="http://css-spinners.com/css/spinner/spinner.css" type="text/css">
 
   <!-- Angular
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -35,20 +36,19 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
 
-    <div class="row">
-      <div class="one column">
+    <div class="row" style="margin-top: 15%">
         <h1>Instagram Searcher</h1>
-      </div>
     </div>
 
-    <form>
-      <div class="row searchField">
-        <div class="six columns">
-          <input class="u-full-width" type="text" placeholder="Enter a tag to search">
-          <input class="button-primary" type="submit" value="Submit">
-        </div>
+      <div class="row">
+          <form>
+            <input class="searchField" type="text" placeholder="Enter a tag to search" ng-pattern="[A-Za-z]" required>
+            <input id="btn" ng-click="tagSearch()" type="submit" value="Submit">
+          </form>
+          <div ng-if="inputCheck">
+            <p>Searching...</p>
+          </div>
       </div>
-    </form>
 
   </div>
 
