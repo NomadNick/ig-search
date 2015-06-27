@@ -23,11 +23,6 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="http://css-spinners.com/css/spinner/spinner.css" type="text/css">
-
-  <!-- Angular
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
 
 </head>
 <body>
@@ -41,20 +36,40 @@
     </div>
 
       <div class="row">
-          <form>
-            <input class="searchField" type="text" placeholder="Enter a tag to search" ng-pattern="[A-Za-z]" required>
-            <input id="btn" ng-click="tagSearch()" type="submit" value="Submit">
+          <form name="myForm" novalidate ng-submit="submit()">
+            <input class="searchField" type="text" placeholder="Enter a tag to search" ng-model="tag" required>
+            <input id="btn" type="submit" value="Submit">
+            <div>
+              <h5 class="error" ng-if="myForm.$submitted && myForm.tag.$error.required">Please Enter a Search Term Above!</h5>
+            </div>
           </form>
-          <div ng-if="inputCheck">
-            <p>Searching...</p>
-          </div>
       </div>
+
+      <section class="results-container">
+        <!-- Message -->
+        <div class="results-message">
+          <h5 ng-if="showMessage">{{showMessage}}</h5>
+        </div>
+
+        <!-- Images -->
+        <div class="group" ng-show="show">
+          <div class="img-results" ng-repeat="result in results">
+            <a href="{{result.link}}"><img ng-src="{{result.images.low_resolution.url}}" /></a>
+          </div>
+        </div>
+
+      </section>
 
   </div>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 
+  <!-- Angular JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+  <script type="text/javascript" src="https://code.angularjs.org/1.3.16/angular-animate.js"></script>
+
+  <!-- Scripts -->
   <script src="js/myApp.js"></script>
 
 </body>
